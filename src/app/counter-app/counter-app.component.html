@@ -1,0 +1,26 @@
+<div class="row text-center">
+  <div class="col">
+    <h1>Contador</h1>
+    <h2>{{ counter }}</h2>
+  </div>
+</div>
+
+<div class="row text-center">
+  <div class="col">
+    <button (click)="decrement()" class="btn btn-danger">decrementar</button>
+    <button (click)="increment()" class="btn btn-primary">Incrementar</button>
+  </div>
+</div>
+
+<hr>
+
+
+<div class="row text-center">
+  <div class="col">
+    <app-counter-child></app-counter-child>
+  </div>
+
+  <div class="row text-center">
+    <div class="col">
+      <app-counter-grandchild></app-counter-grandchild>
+    </div>

@@ -1,0 +1,29 @@
+<form novalidate [formGroup]="customerForm" (ngSubmit)="saveChanges()" class="mat-elevation-z8 p-3 mt-3">
+  <h1 class="mt-2 client">{{ title | capitalizado }} </h1>
+  <mat-form-field [floatLabel]="'never'" hintLabel="Just numbers" class="ml">
+    <input matInput placeholder="Id" type="text" formControlName="id" />
+  </mat-form-field>
+
+  <mat-form-field [floatLabel]="'never'" class="ml" hintLabel="Not numbers">
+    <input matInput placeholder="Name" type="text" autocomplete="off" formControlName="name" />
+  </mat-form-field>
+
+  <mat-form-field [floatLabel]="'never'" hintLabel="Max 3 characters just numbers" class="ml">
+    <input matInput placeholder="Idade" type="text" autocomplete="off" formControlName="age" #input maxlength="3"
+      minlength="1" />
+  </mat-form-field>
+
+  <mat-form-field [floatLabel]="'never'" hintLabel="Not numbers" class="ml">
+    <input matInput placeholder="Cidade" type="text" autocomplete="off" formControlName="city" />
+  </mat-form-field>
+
+  <div mat-dialog-actions class="mt-5">
+    <ng-container *ngIf="noModal">
+      <button mat-button class="mr-3" (click)="back()">Voltar</button>
+    </ng-container>
+    <ng-container *ngIf="!noModal">
+      <button mat-button class="mr-3" (click)="cancelar()">Cancelar</button>
+    </ng-container>
+    <button mat-raised-button type="submit" [disabled]="habilitaGuardar || !customerForm.valid">Salvar</button>
+  </div>
+</form>

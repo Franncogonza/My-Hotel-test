@@ -1,0 +1,9 @@
+@import "../../../assets/myHotel-variables.scss";
+
+.ml {
+  margin-left: 40px !important;
+}
+
+.client {
+  color: #289ccd !important;
+}

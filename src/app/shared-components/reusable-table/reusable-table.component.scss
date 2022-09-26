@@ -1,0 +1,39 @@
+@import "../../../assets/myHotel-variables.scss";
+
+.hide {
+  visibility: hidden;
+  margin-top: 15px;
+}
+
+.action-hide:hover .hide {
+  visibility: visible;
+  cursor: pointer;
+}
+
+.action-hide:hover {
+  background-color: $myHotel-blue  !important;
+}
+
+.sortable {
+  color: $myHotel-blue  !important;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+td {
+  vertical-align: middle;
+}
+
+.isMobile {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  section {
+    display: none;
+  }
+
+  .isMobile {
+    display: block !important;
+  }
+}
