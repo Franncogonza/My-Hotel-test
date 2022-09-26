@@ -1,3 +1,13 @@
 nav {
   padding: 20px;
 }
+
+@media (max-width: 800px) {
+  nav {
+    display: grid;
+  }
+
+  a {
+    margin-bottom: 12px;
+  }
+}
