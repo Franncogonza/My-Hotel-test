@@ -45,10 +45,8 @@ export class CustomersListComponent implements OnInit {
 
   private buildBodytable() {
     this.loader = true;
-    this.customerService.getCustomers().subscribe((res: any) => {
-      this.dataCustomers = res;
-      this.loader = false;
-    });
+    this.dataCustomers = this.customerService.getCustomers();
+    this.loader = false;
   }
 
   validateScreenSize() {

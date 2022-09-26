@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 import { map } from 'rxjs/internal/operators/map';
+import { USERS_MOCK } from './mock-service';
 
 @Injectable({
   providedIn: 'root'
@@ -14,8 +15,11 @@ export class UsersService {
 
   constructor(private http: HttpClient) { }
 
+  // getCustomers() {
+  //   return this.getDataContent<string>(`${this.urlRequest}`);
+  // }
   getCustomers() {
-    return this.getDataContent<string>(`${this.urlRequest}`);
+    return USERS_MOCK;
   }
 
   private getDataContent<T>(resource: string) {
