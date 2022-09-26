@@ -14,6 +14,7 @@ export class UsersService {
   urlRequest = 'http://private-92a969-processoseletivo1.apiary-mock.com/customers';
 
   constructor(private http: HttpClient) { }
+  //sentite a gusto de probar la app consumiendo el servicio, lo comente porque al deployarlo y usarlo online me bloquea
 
   // getCustomers() {
   //   return this.getDataContent<string>(`${this.urlRequest}`);
