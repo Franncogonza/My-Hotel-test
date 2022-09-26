@@ -60,10 +60,10 @@
               </button>
               <mat-menu #menu="matMenu">
                 <button mat-menu-item class="mat-menu-item" (click)="editCustomer(d)">
-                  <div class="item-accion">Editar en un Modal </div>
+                  <div class="item-accion">Edit in Modal </div>
                 </button>
                 <button mat-menu-item class="mat-menu-item" (click)="editInOtherRoute(d)">
-                  <div class="item-accion">Editar en otra ruta</div>
+                  <div class="item-accion">Edit in another patch</div>
                 </button>
               </mat-menu>
             </td>
@@ -81,13 +81,13 @@
   <ng-container *ngFor="let d of obs | async">
     <mat-card class="isMobile">
       <mat-card-title>ID: {{d.id}}</mat-card-title>
-      <mat-card-subtitle>Nome: {{ d.name}}</mat-card-subtitle>
+      <mat-card-subtitle>[formGroupName]="name": {{ d.name}}</mat-card-subtitle>
       <mat-card-actions>
-        <button mat-button>Idade: {{ d.age }}</button>
-        <button mat-button>Cidade: {{ d.city }}</button>
+        <button mat-button>Age: {{ d.age }}</button>
+        <button mat-button>City: {{ d.city }}</button>
       </mat-card-actions>
       <mat-card-actions align="end">
-        <button mat-button (click)="editInOtherRoute(d)">Editar</button>
+        <button mat-button (click)="editInOtherRoute(d)">Edit</button>
       </mat-card-actions>
     </mat-card>
     <br>
