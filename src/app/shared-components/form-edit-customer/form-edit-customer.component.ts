@@ -11,7 +11,7 @@ import { UsersService } from 'src/services/users.service';
   styleUrls: ['./form-edit-customer.component.css']
 })
 export class FormEditCustomerComponent implements OnInit {
-  title: string = 'EDITAR USUARIO';
+  title: string = 'User edit';
   @Input() data: any;
   @Input() noModal: boolean = false;
   @Output() closeModal = new EventEmitter();

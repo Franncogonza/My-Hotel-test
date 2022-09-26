@@ -1,5 +1,5 @@
 <form novalidate [formGroup]="customerForm" (ngSubmit)="saveChanges()" class="mat-elevation-z8 p-3 mt-3">
-  <h1 class="mt-2 client">{{ title | capitalizado }} </h1>
+  <h1 class="mt-2 client">{{ title | uppercase }} </h1>
   <mat-form-field [floatLabel]="'never'" hintLabel="Just numbers" class="ml">
     <input matInput placeholder="Id" type="text" formControlName="id" />
   </mat-form-field>
@@ -19,11 +19,11 @@
 
   <div mat-dialog-actions class="mt-5">
     <ng-container *ngIf="noModal">
-      <button mat-button class="mr-3" (click)="back()">Voltar</button>
+      <button mat-button class="mr-3" (click)="back()">Back</button>
     </ng-container>
     <ng-container *ngIf="!noModal">
-      <button mat-button class="mr-3" (click)="cancelar()">Cancelar</button>
+      <button mat-button class="mr-3" (click)="cancelar()">Cancel</button>
     </ng-container>
-    <button mat-raised-button type="submit" [disabled]="habilitaGuardar || !customerForm.valid">Salvar</button>
+    <button mat-raised-button type="submit" [disabled]="habilitaGuardar || !customerForm.valid">Save</button>
   </div>
 </form>

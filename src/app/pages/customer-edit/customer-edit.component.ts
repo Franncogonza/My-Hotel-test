@@ -3,8 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-customer-edit',
-  templateUrl: './customer-edit.component.html',
-  styleUrls: ['./customer-edit.component.scss']
+  templateUrl: './customer-edit.component.html'
 })
 export class CustomerEditComponent implements OnInit {
   data: any;
