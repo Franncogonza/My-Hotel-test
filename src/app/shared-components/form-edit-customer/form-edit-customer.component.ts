@@ -8,7 +8,7 @@ import { UsersService } from 'src/services/users.service';
 @Component({
   selector: 'app-form-edit-customer',
   templateUrl: './form-edit-customer.component.html',
-  styleUrls: ['./form-edit-customer.component.css']
+  styleUrls: ['./form-edit-customer.component.scss']
 })
 export class FormEditCustomerComponent implements OnInit {
   title: string = 'User edit';
