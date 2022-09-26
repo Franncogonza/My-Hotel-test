@@ -1,0 +1,15 @@
+@import '../../../assets/myHotel-variables.scss';
+
+.title-page,
+p {
+  margin: 30px;
+  text-align: center;
+  color: $myHotel-blue;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+span {
+  font-size: 25px !important;
+  color: $myHotel-green;
+}

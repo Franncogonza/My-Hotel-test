@@ -26,6 +26,7 @@ import { counterReducer } from './counter-app/counter.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { CounterChildComponent } from './counter-app/counter-child/counter-child.component';
 import { CounterGrandchildComponent } from './counter-app/counter-grandchild/counter-grandchild.component';
+import { WelcomeDateComponent } from './shared-components/welcome-date/welcome-date.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { CounterGrandchildComponent } from './counter-app/counter-grandchild/cou
     CapitalizadoPipe,
     CounterAppComponent,
     CounterChildComponent,
-    CounterGrandchildComponent
+    CounterGrandchildComponent,
+    WelcomeDateComponent
   ],
   imports: [
     BrowserModule,

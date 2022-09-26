@@ -26,4 +26,14 @@ export class UsersService {
     return this.http.put(`${this.urlRequest}/${customerId}`, body)
       .pipe(map((responsePost: any) => responsePost));
   }
+
+  customerDelete(customerId: number, body: any) {
+    return this.http.delete(`${this.urlRequest}/${customerId}`, body)
+      .pipe(map((responsePost: any) => responsePost));
+  }
+
+  customerAdd(customerId: number, body: any) {
+    return this.http.post(`${this.urlRequest}/${customerId}`, body)
+      .pipe(map((responsePost: any) => responsePost));
+  }
 }

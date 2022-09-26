@@ -13,7 +13,6 @@ export class CustomersListComponent implements OnInit {
   public dataChange: Observable<any> | undefined;
   public dataCustomers: any = [];
   public columns: Array<IReusableTable> = [];
-  public today = Date.now();
 
   @HostListener('window:resize', ['$event']) onResize(event: any) {
     if (event.target.innerWidth <= 700) this.customerService.vistaMobile$.next(true);

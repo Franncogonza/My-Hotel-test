@@ -1,96 +1,96 @@
 <!-- TO DO: $vistaMobile -->
-<!-- <ng-container *ngIf="!$vistaMobile.value"> -->
-<section class="flex-column p-5">
-  <div class="row w-100">
+<ng-container *ngIf="!$vistaMobile.value">
+  <section class="flex-column p-5">
+    <div class="row w-100">
 
-    <!-- filters -->
-    <mat-form-field appearance="standard">
-      <mat-label>Filters</mat-label>
-      <input matInput (keyup)="applyFilter($event)" placeholder="Filtre por id, nombre, edad o ciudad" #input>
-    </mat-form-field>
+      <!-- filters -->
+      <mat-form-field appearance="standard">
+        <mat-label>Filters</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Filtre por id, nombre, edad o ciudad" #input>
+      </mat-form-field>
 
-    <!-- table -->
-    <table class="table w-100 mat-elevation-z8 p-3" matSort>
-      <thead>
-        <tr>
-          <ng-container *ngFor="let column of columns">
-            <th scope="col" class="text-left sortable" [innerHTML]="column.headerName"
-              mat-sort-header="{{column.field}}">
+      <!-- table -->
+      <table class="table w-100 mat-elevation-z8 p-3" matSort>
+        <thead>
+          <tr>
+            <ng-container *ngFor="let column of columns">
+              <th scope="col" class="text-left sortable" [innerHTML]="column.headerName"
+                mat-sort-header="{{column.field}}">
+              </th>
+            </ng-container>
+            <th class="text-left" *ngIf="action" style="width: 50px">
+              Actions
             </th>
-          </ng-container>
-          <th class="text-left" *ngIf="action" style="width: 50px">
-            Actions
-          </th>
-        </tr>
-      </thead>
+          </tr>
+        </thead>
 
-      <tbody>
-        <tr *ngFor="let d of obs | async" class="action-hide">
-          <td *ngFor="let c of columns; index as i" [style]="
+        <tbody>
+          <tr *ngFor="let d of obs | async" class="action-hide">
+            <td *ngFor="let c of columns; index as i" [style]="
                         (c.field === 'name') ? 'width: 120px;' :
                         (c.field === 'city') ? 'width: 120px;' :
                         (c.field === 'email') ? 'width: 50px;' :
                         (c.field === 'age') ? 'width: 50px;' :
                         (c.field === 'id') ? 'width: 50px;' : ''" [ngSwitch]="c.field">
-            <ng-container>
-              <span *ngSwitchCase="'id'">
-                {{ d.id }}
-              </span>
-              <span *ngSwitchCase="'name'">
-                {{ d.name | titlecase }}
-              </span>
-              <span *ngSwitchCase="'age'">
-                {{ d.age }}
-              </span>
-              <span *ngSwitchCase="'email'">
-                {{ d.email }}
-              </span>
-              <span *ngSwitchCase="'city__1'">
-                {{ d.address.city | titlecase }}
-              </span>
-              <span *ngSwitchCase="'city'">
-                {{ d.city | titlecase }}
-              </span>
-            </ng-container>
-          </td>
+              <ng-container>
+                <span *ngSwitchCase="'id'">
+                  {{ d.id }}
+                </span>
+                <span *ngSwitchCase="'name'">
+                  {{ d.name | titlecase }}
+                </span>
+                <span *ngSwitchCase="'age'">
+                  {{ d.age }}
+                </span>
+                <span *ngSwitchCase="'email'">
+                  {{ d.email }}
+                </span>
+                <span *ngSwitchCase="'city__1'">
+                  {{ d.address.city | titlecase }}
+                </span>
+                <span *ngSwitchCase="'city'">
+                  {{ d.city | titlecase }}
+                </span>
+              </ng-container>
+            </td>
 
-          <!-- actions -->
-          <td *ngIf="action">
-            <button mat-icon-button [matMenuTriggerFor]="menu" class="hide">
-              <mat-icon>more_vert</mat-icon>
-            </button>
-            <mat-menu #menu="matMenu">
-              <button mat-menu-item class="mat-menu-item" (click)="editCustomer(d)">
-                <div class="item-accion">Editar en un Modal </div>
+            <!-- actions -->
+            <td *ngIf="action">
+              <button mat-icon-button [matMenuTriggerFor]="menu" class="hide">
+                <mat-icon>more_vert</mat-icon>
               </button>
-              <button mat-menu-item class="mat-menu-item" (click)="editInOtherRoute(d)">
-                <div class="item-accion">Editar en otra ruta</div>
-              </button>
-            </mat-menu>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <!-- paginator -->
-  <mat-paginator [pageSize]="10" [hidePageSize]="this.ocultarPageSize"></mat-paginator>
-</section>
-<!-- </ng-container> -->
+              <mat-menu #menu="matMenu">
+                <button mat-menu-item class="mat-menu-item" (click)="editCustomer(d)">
+                  <div class="item-accion">Editar en un Modal </div>
+                </button>
+                <button mat-menu-item class="mat-menu-item" (click)="editInOtherRoute(d)">
+                  <div class="item-accion">Editar en otra ruta</div>
+                </button>
+              </mat-menu>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- paginator -->
+    <mat-paginator [pageSize]="10" [hidePageSize]="this.ocultarPageSize"></mat-paginator>
+  </section>
+</ng-container>
 
 <!-- TO DO: $vistaMobile -->
-<!-- <ng-container *ngIf="$vistaMobile.value"> -->
-<!-- <ng-container *ngFor="let d of obs | async">
-  <mat-card class="isMobile">
-    <mat-card-title>ID: {{d.id}}</mat-card-title>
-    <mat-card-subtitle>Nome: {{ d.name}}</mat-card-subtitle>
-    <mat-card-actions>
-      <button mat-button>Idade: {{ d.age }}</button>
-      <button mat-button>Cidade: {{ d.address.city }}</button>
-    </mat-card-actions>
-    <mat-card-actions align="end">
-      <button mat-button (click)="editInOtherRoute(d)">Editar</button>
-    </mat-card-actions>
-  </mat-card>
-  <br>
-</ng-container> -->
-<!-- </ng-container> -->
+<ng-container *ngIf="$vistaMobile.value">
+  <ng-container *ngFor="let d of obs | async">
+    <mat-card class="isMobile">
+      <mat-card-title>ID: {{d.id}}</mat-card-title>
+      <mat-card-subtitle>Nome: {{ d.name}}</mat-card-subtitle>
+      <mat-card-actions>
+        <button mat-button>Idade: {{ d.age }}</button>
+        <button mat-button>Cidade: {{ d.city }}</button>
+      </mat-card-actions>
+      <mat-card-actions align="end">
+        <button mat-button (click)="editInOtherRoute(d)">Editar</button>
+      </mat-card-actions>
+    </mat-card>
+    <br>
+  </ng-container>
+</ng-container>

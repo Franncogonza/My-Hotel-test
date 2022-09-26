@@ -13,7 +13,10 @@ Navigate to `http://localhost:4200/`. The application will automatically reload 
 
 Al ingresar a la página tendra la portada donde me presento y puede acceder a mi github, esta es la pestaña home.
 Si ingresa a la pestaña customerList, podra ver una lista de usuarios consumida en una url creada a fines de consumir datos de usuarios moqueados.
+
 Podra visualizar una tabla, donde podra filtrar por cualquier campo, y tambien ordenar la misma tabla haciendo click en las cabecera de la misma. ( los titulos ciudad nombre id, etc).
+Cabe aclarar que esta disponible para visualizarse desde cualquier dispositivo, si, incluye vista mobile ;) y una l+ogica que detecta el tipo de pantalla (HostListener) se queda escuchando y segun el tamaño muestra mobile o no. ( la tabla en version mobile son unas cards).
+
 El mètodo  `buildHeaderTable()` es el que construye el header de la tabla, se le pasa un objeto con los campos headerName y field.
 Con el mètodo `buildBodyTable()`, se llama al servicio, cuya respuesta sera la data que se pasara a la tabla por medio de un input.
 El componente `reusableTable` es el que recibe la data y renderiza la tabla, el compopnente es hijo del componente `customerlist`que es el padre donde se propduce la mayor parte de la lógica.
